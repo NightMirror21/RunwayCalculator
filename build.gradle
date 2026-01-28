@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group = 'ru.nightmirror'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+    compileOnly 'org.jetbrains:annotations:24.0.1'
+}
