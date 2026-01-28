@@ -5,12 +5,12 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class BrakeChuteCalculator {
 
-    public static double computeBrakeChuteForce(Plane plane, double timeFromTouchdown) {
+    public static double computeBrakeChuteForce(Plane plane, double airspeedInMeterPerSecond, double timeFromTouchdown) {
         if (!plane.hasBrakeChute()) {
             return 0.0;
         }
 
-        double V = plane.getSpeedInMeterPerSecond();
+        double V = airspeedInMeterPerSecond;
         double deploySpeed = plane.getBrakeChuteDeploymentSpeedInMeterPerSecond();
 
         // Парашют не работает, если скорость слишком низкая

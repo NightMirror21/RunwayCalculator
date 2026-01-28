@@ -1,6 +1,6 @@
 package ru.nightmirror.runway;
 
-public class WindEnvironment implements Environment {
+public class HeadwindEnvironment implements Environment {
     @Override
     public double getHeadwindSpeedInMeterPerSecond() {
         return 10.0D;

@@ -11,7 +11,7 @@ public class MiG29 implements Plane {
     }
 
     @Override
-    public double getWeight() {
+    public double getMassInKilograms() {
         return 11000D;
     }
 
@@ -52,12 +52,12 @@ public class MiG29 implements Plane {
 
     @Override
     public double getReverseCutoffSpeedInMeterPerSecond() {
-        return 25000.0D;
+        return 30.0D;
     }
 
     @Override
     public double getReverseMaxThrustInNewtons() {
-        return 30.0D;
+        return 30000.0D;
     }
 
     @Override

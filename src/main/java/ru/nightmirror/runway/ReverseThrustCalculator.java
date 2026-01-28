@@ -14,8 +14,11 @@ public class ReverseThrustCalculator {
             return 0.0D;
         }
 
-        double k_reverse = (currentSpeed - reverseCutoffSpeed) / (landingSpeed - reverseCutoffSpeed);
-        return plane.getReverseMaxThrustInNewtons() * Math.max(0.0, k_reverse);
+        if (currentSpeed >= landingSpeed) {
+            return plane.getReverseMaxThrustInNewtons();
+        }
+
+        double kReverse = (currentSpeed - reverseCutoffSpeed) / (landingSpeed - reverseCutoffSpeed);
+        return plane.getReverseMaxThrustInNewtons() * Math.min(1.0D, Math.max(0.0D, kReverse));
     }
 }
-

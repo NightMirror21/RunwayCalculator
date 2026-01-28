@@ -15,7 +15,7 @@ public interface Plane {
 
     double getDragCoefficient();
 
-    double getWeight();
+    double getMassInKilograms();
 
     double getWingArea();
 
