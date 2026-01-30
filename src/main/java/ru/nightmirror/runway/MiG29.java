@@ -52,7 +52,7 @@ public class MiG29 implements Plane {
 
     @Override
     public boolean hasBrakeChute() {
-        return false;
+        return true;
     }
 
     @Override
