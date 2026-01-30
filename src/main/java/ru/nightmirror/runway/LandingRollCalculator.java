@@ -79,7 +79,7 @@ public class LandingRollCalculator {
             double wheelBrakingForce = frictionCoefficient * totalNormalForce;
 
             // Реверс тяги и парашют (независимы от боковика)
-            double parachuteForce = BrakeChuteCalculator.computeBrakeChuteForce(plane, airspeed, timeFromTouchdown);
+            double parachuteForce = BrakeChuteCalculator.computeBrakeChuteForce(plane, airspeed);
 
             // Общая продольная тормозная сила
             double totalLongitudinalBrakingForce = wheelBrakingForce +

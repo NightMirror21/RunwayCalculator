@@ -4,6 +4,6 @@ public class DryConcreteGround implements Ground {
 
     @Override
     public double getMu() {
-        return 0.35D;
+        return 0.20D;
     }
 }

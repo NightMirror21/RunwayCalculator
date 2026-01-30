@@ -52,12 +52,7 @@ public class MiG29 implements Plane {
 
     @Override
     public boolean hasBrakeChute() {
-        return true;
-    }
-
-    @Override
-    public double getBrakeChuteDeploymentSpeedInMeterPerSecond() {
-        return 55.0D;
+        return false;
     }
 
     @Override
@@ -67,12 +62,7 @@ public class MiG29 implements Plane {
 
     @Override
     public double getBrakeChuteCoefficient() {
-        return 0.52D;
-    }
-
-    @Override
-    public double getBrakeChuteDeploymentDelayInSeconds() {
-        return 1.5D;
+        return 0.70D;
     }
 }
 

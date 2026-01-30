@@ -21,11 +21,7 @@ public interface Plane {
 
     boolean hasBrakeChute();
 
-    double getBrakeChuteDeploymentSpeedInMeterPerSecond();
-
     double getBrakeChuteDragArea();
 
     double getBrakeChuteCoefficient();
-
-    double getBrakeChuteDeploymentDelayInSeconds();
 }
