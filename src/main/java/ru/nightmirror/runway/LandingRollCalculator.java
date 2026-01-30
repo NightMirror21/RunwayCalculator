@@ -23,7 +23,7 @@ public class LandingRollCalculator {
     // Доля бокового трения, помогающего продольному торможению (25%)
     private static final double SIDE_TO_LONG_DRAG_RATIO = 0.25D;
 
-    private static final String LOG_FORMAT = "%-6s %-8s %-8s %-8s %-10s %-10s %-12s %-12s %-12s%n";
+    private static final String LOG_FORMAT = "%-6s %-8s %-8s %-8s %-10s %-10s %-12s %-12s%n";
 
     public static double computeGroundRollInMeters(Plane plane, Ground ground, Environment environment) {
         return computeGroundRollInMeters(plane, ground, environment, false);
@@ -59,7 +59,6 @@ public class LandingRollCalculator {
                     "a, м/с^2",
                     "S, м",
                     "Тормоз, Н",
-                    "Реверс, Н",
                     "Парашют, Н");
         }
 
@@ -107,12 +106,11 @@ public class LandingRollCalculator {
             double additionalLongitudinalDrag = lateralFrictionForce * SIDE_TO_LONG_DRAG_RATIO;
 
             // Реверс тяги и парашют (независимы от боковика)
-            double reverseThrustForce = ReverseThrustCalculator.computeReverseThrust(plane);
             double parachuteForce = BrakeChuteCalculator.computeBrakeChuteForce(plane, airspeed, timeFromTouchdown);
 
             // Общая продольная тормозная сила
             double totalLongitudinalBrakingForce = wheelBrakingForce + additionalLongitudinalDrag +
-                    aerodynamicDrag + reverseThrustForce + parachuteForce;
+                    aerodynamicDrag + parachuteForce;
 
             // Продольное ускорение (замедление)
             double longitudinalAcceleration = -totalLongitudinalBrakingForce / aircraftMass;
@@ -136,7 +134,6 @@ public class LandingRollCalculator {
                         String.format("%.2f", longitudinalAcceleration),
                         String.format("%.2f", plane.getMileage()),
                         String.format("%.0f", wheelBrakingForce),
-                        String.format("%.0f", reverseThrustForce),
                         String.format("%.0f", parachuteForce));
             }
 

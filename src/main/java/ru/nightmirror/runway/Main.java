@@ -13,14 +13,14 @@ public class Main {
 
         Plane plane = new MiG29();
 
-        // NoWindEnvironment noWindEnvironment = new NoWindEnvironment();
-        // Ground dryGround = new DryConcreteGround();
+         NoWindEnvironment noWindEnvironment = new NoWindEnvironment();
+         Ground dryGround = new DryConcreteGround();
         // System.out.println(LandingRollCalculator.computeGroundRollInMetersWithLog(plane, dryGround, noWindEnvironment));
-         Ground wetGround = new WetConcreteGround();
+//         Ground wetGround = new WetConcreteGround();
         // System.out.println(LandingRollCalculator.computeGroundRollInMeters(plane, wetGround, noWindEnvironment));
 
-         Environment headwindEnvironment = new HeadwindEnvironment();
+//         Environment headwindEnvironment = new HeadwindEnvironment();
         // System.out.println(LandingRollCalculator.computeGroundRollInMeters(plane, dryGround, headwindEnvironment));
-         System.out.println(LandingRollCalculator.computeGroundRollInMetersWithLog(plane, wetGround, headwindEnvironment));
+         System.out.println(LandingRollCalculator.computeGroundRollInMetersWithLog(plane, dryGround, noWindEnvironment));
     }
 }

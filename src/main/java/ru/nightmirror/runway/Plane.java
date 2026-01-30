@@ -19,15 +19,13 @@ public interface Plane {
 
     double getWingArea();
 
-    double getReverseMaxThrustInNewtons();
-
-    double getReverseCutoffSpeedInMeterPerSecond();
-
     boolean hasBrakeChute();
 
     double getBrakeChuteDeploymentSpeedInMeterPerSecond();
 
     double getBrakeChuteDragArea();
+
+    double getBrakeChuteCoefficient();
 
     double getBrakeChuteDeploymentDelayInSeconds();
 }

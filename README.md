@@ -84,7 +84,7 @@ F_lift = 0.5 * ρ * S * V^2 * C_l
 Сила парашюта рассчитывается как аэродинамическое сопротивление:
 
 ```
-F_chute = 0.5 * ρ * A_chute * V^2 * progress
+F_chute = 0.5 * ρ * A_chute * BrakeChuteCoefficient * V^2 * progress
 ```
 
 где `progress` плавно растёт от 0 до 1 за 1.5 секунды после задержки.

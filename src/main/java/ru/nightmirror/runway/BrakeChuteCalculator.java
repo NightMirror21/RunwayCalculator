@@ -30,7 +30,7 @@ public class BrakeChuteCalculator {
 
         // Сила парашюта
         double chuteDrag = 0.5 * Constants.AIR_DENSITY *
-                plane.getBrakeChuteDragArea() *
+                plane.getBrakeChuteDragArea() * plane.getBrakeChuteCoefficient() *
                 V * V * deploymentProgress;
 
         return chuteDrag;

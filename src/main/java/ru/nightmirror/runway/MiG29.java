@@ -7,12 +7,12 @@ public class MiG29 implements Plane {
 
     @Override
     public double getLandingSpeedInMeterPerSecond() {
-        return 70D;
+        return 72D;
     }
 
     @Override
     public double getMassInKilograms() {
-        return 11000D;
+        return 12900D;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class MiG29 implements Plane {
 
     @Override
     public double getDragCoefficient() {
-        return 0.3D;
+        return 0.05D;
     }
 
     @Override
@@ -51,16 +51,6 @@ public class MiG29 implements Plane {
     }
 
     @Override
-    public double getReverseCutoffSpeedInMeterPerSecond() {
-        return 30.0D;
-    }
-
-    @Override
-    public double getReverseMaxThrustInNewtons() {
-        return 30000.0D;
-    }
-
-    @Override
     public boolean hasBrakeChute() {
         return true;
     }
@@ -72,7 +62,12 @@ public class MiG29 implements Plane {
 
     @Override
     public double getBrakeChuteDragArea() {
-        return 25.0D;
+        return 18.0D;
+    }
+
+    @Override
+    public double getBrakeChuteCoefficient() {
+        return 0.52D;
     }
 
     @Override
