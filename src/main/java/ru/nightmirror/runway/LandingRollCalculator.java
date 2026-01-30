@@ -93,23 +93,14 @@ public class LandingRollCalculator {
             // Нормальная реакция для продольного торможения
             double longitudinalNormalForce = totalNormalForce * (1.0D - lateralLoadFraction);
 
-            // Нормальная реакция для бокового трения
-            double lateralNormalForce = totalNormalForce * lateralLoadFraction;
-
             // Тормозная сила колёс (продольная, ослаблена боковиком)
             double wheelBrakingForce = frictionCoefficient * longitudinalNormalForce;
-
-            // Боковое трение
-            double lateralFrictionForce = frictionCoefficient * lateralNormalForce;
-
-            // Дополнительное продольное торможение от бокового скольжения
-            double additionalLongitudinalDrag = lateralFrictionForce * SIDE_TO_LONG_DRAG_RATIO;
 
             // Реверс тяги и парашют (независимы от боковика)
             double parachuteForce = BrakeChuteCalculator.computeBrakeChuteForce(plane, airspeed, timeFromTouchdown);
 
             // Общая продольная тормозная сила
-            double totalLongitudinalBrakingForce = wheelBrakingForce + additionalLongitudinalDrag +
+            double totalLongitudinalBrakingForce = wheelBrakingForce +
                     aerodynamicDrag + parachuteForce;
 
             // Продольное ускорение (замедление)
