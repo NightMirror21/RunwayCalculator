@@ -5,7 +5,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class LandingRollCalculator {
     // Шаг интегрирования по времени (сек)
-    private static final double TIME_STEP = 0.05D;
+    private static final double TIME_STEP = 0.5D;
 
     // Минимальная скорость (ниже = остановка, м/с)
     private static final double MINIMUM_SPEED = 0.1D;
