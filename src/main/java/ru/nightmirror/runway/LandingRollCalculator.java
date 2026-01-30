@@ -14,15 +14,6 @@ public class LandingRollCalculator {
     // V_cross(t) = V0 * exp(-t * 2.0). За 1.5с боковик падает до 5%
     private static final double CROSSWIND_DECAY_RATE = 2.0D;
 
-    // Максимальная доля нормальной реакции на боковое трение (50%)
-    private static final double MAX_LATERAL_FRACTION = 0.5D;
-
-    // Угол скольжения 15° в радианах (лимит для шасси)
-    private static final double SLIP_ANGLE_LIMIT_RAD = 0.26D;
-
-    // Доля бокового трения, помогающего продольному торможению (25%)
-    private static final double SIDE_TO_LONG_DRAG_RATIO = 0.25D;
-
     private static final String LOG_FORMAT = "%-6s %-8s %-8s %-8s %-10s %-10s %-12s %-12s%n";
 
     public static double computeGroundRollInMeters(Plane plane, Ground ground, Environment environment) {
@@ -84,17 +75,8 @@ public class LandingRollCalculator {
             // Общая нормальная реакция шасси (Вес - Подъёмная сила)
             double totalNormalForce = Math.max(0.0D, plane.getMassInKilograms() * Constants.G - liftForce);
 
-            // УГОЛ СКОЛЬЖЕНИЯ от бокового ветра
-            double slipAngleRadians = Math.atan2(currentCrosswindSpeed, longitudinalSpeed);
-
-            // Доля нагрузки на боковое трение (0..0.5)
-            double lateralLoadFraction = Math.min(MAX_LATERAL_FRACTION, Math.abs(slipAngleRadians) / SLIP_ANGLE_LIMIT_RAD);
-
-            // Нормальная реакция для продольного торможения
-            double longitudinalNormalForce = totalNormalForce * (1.0D - lateralLoadFraction);
-
-            // Тормозная сила колёс (продольная, ослаблена боковиком)
-            double wheelBrakingForce = frictionCoefficient * longitudinalNormalForce;
+            // Тормозная сила колёс
+            double wheelBrakingForce = frictionCoefficient * totalNormalForce;
 
             // Реверс тяги и парашют (независимы от боковика)
             double parachuteForce = BrakeChuteCalculator.computeBrakeChuteForce(plane, airspeed, timeFromTouchdown);
